@@ -7,7 +7,6 @@ interface AnswerQuestionUseCaseRequest{
   content: string
 }
 
-
 export class AnswerQuestionUseCase {
   constructor(
     private answerRepository: AnswersRepository,
