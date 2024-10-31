@@ -1,10 +1,10 @@
-import { Slug } from "./value-objects/slug";
-import { Entity } from "../../core/entities/entity";
-import type { UniqueEntityID } from "../../core/entities/unique-entity-id";
-import type { Optional } from "../../core/types/optional";
-import dayjs from "dayjs";
+import { Slug } from './value-objects/slug'
+import { Entity } from '@/core/entities/entity'
+import type { UniqueEntityID } from '@/core/entities/unique-entity-id'
+import type { Optional } from '@/core/types/optional'
+import dayjs from 'dayjs'
 
-interface QuestionProps{
+interface QuestionProps {
   authorId: UniqueEntityID
   bestAnswerId?: UniqueEntityID
   title: string
@@ -14,7 +14,7 @@ interface QuestionProps{
   updatedAt?: Date
 }
 
-export class Question extends Entity<QuestionProps>{
+export class Question extends Entity<QuestionProps> {
   get authorId() {
     return this.props.authorId
   }
@@ -54,29 +54,35 @@ export class Question extends Entity<QuestionProps>{
   private touch() {
     this.props.updatedAt = new Date()
   }
-  
+
   set title(title: string) {
     this.title = title
     this.props.slug = Slug.createFromText(title)
     this.touch()
   }
-  
+
   set content(content: string) {
     this.content = content
     this.touch()
   }
-  
+
   set bestAnswerId(bestAnswerId: UniqueEntityID | undefined) {
     this.bestAnswerId = bestAnswerId
     this.touch()
   }
 
-  static create(props: Optional<QuestionProps, 'createdAt' | 'slug' >, id?: UniqueEntityID){
-    const question = new Question({
-      ...props,
-      slug: props.slug ?? Slug.createFromText(props.title),
-      createdAt: new Date()
-    }, id)
+  static create(
+    props: Optional<QuestionProps, 'createdAt' | 'slug'>,
+    id?: UniqueEntityID,
+  ) {
+    const question = new Question(
+      {
+        ...props,
+        slug: props.slug ?? Slug.createFromText(props.title),
+        createdAt: new Date(),
+      },
+      id,
+    )
 
     return question
   }

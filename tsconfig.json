@@ -2,6 +2,11 @@
   "compilerOptions": {
     "target": "ES2020",
     "module": "commonjs",
+    "baseUrl": "./",
+    "paths": {
+      "@/*": ["./src/*"]
+    },
+    "types": ["vitest/globals"],
     "esModuleInterop": true,
     "forceConsistentCasingInFileNames": true,
     "strict": true,

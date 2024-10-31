@@ -1,5 +1,4 @@
-import { expect, it } from "vitest";
-import { Slug } from "./slug";
+import { Slug } from './slug'
 
 it('souhld be able to create a new slug from text', () => {
   const slug = Slug.createFromText('Example question title')
