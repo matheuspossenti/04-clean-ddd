@@ -1,7 +1,7 @@
 import { InMemoryQuestionsRepository } from 'test/repositories/in-memory-questions-repository'
 import { makeQuestion } from 'test/factories/make-question'
-import { InMemoryQuestionCommentsRepository } from 'test/repositories/in-memoty-question-comments-repository'
 import { CommentOnQuestionUseCase } from './comment-on-question'
+import { InMemoryQuestionCommentsRepository } from 'test/repositories/in-memory-question-comments-repository'
 
 let inMemoryQuestionsRepository: InMemoryQuestionsRepository
 let inMemoryQuestionCommentsRepository: InMemoryQuestionCommentsRepository
@@ -29,6 +29,8 @@ describe('Comment On Question', () => {
       content: 'Test comment',
     })
 
-    expect(inMemoryQuestionsRepository.items[0].content).toEqual('Test comment')
+    expect(inMemoryQuestionCommentsRepository.items[0].content).toEqual(
+      'Test comment',
+    )
   })
 })
