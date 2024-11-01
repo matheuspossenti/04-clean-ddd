@@ -11,6 +11,7 @@
   },
   "license": "MIT",
   "devDependencies": {
+    "@faker-js/faker": "9.1.0",
     "@rocketseat/eslint-config": "2.2.2",
     "@types/node": "18.15.11",
     "eslint": "8.33.0",

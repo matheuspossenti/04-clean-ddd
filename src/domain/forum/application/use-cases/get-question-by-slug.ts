@@ -1,8 +1,9 @@
 import type { QuestionsRepository } from '../repositories/questions-repository'
 import { Question } from '../../enterprise/entities/question'
+import type { Slug } from '../../enterprise/entities/value-objects/slug'
 
 interface GetQuestionBySlugUseCaseRequest {
-  slug: string
+  slug: Slug
 }
 
 interface GetQuestionBySlugUseCaseResponse {
