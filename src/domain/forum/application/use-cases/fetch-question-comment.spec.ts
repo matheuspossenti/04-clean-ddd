@@ -13,7 +13,7 @@ describe('Fetch Question Comments', () => {
     sut = new FetchQuestionCommentsUseCase(inMemoryQuestionCommentsRepository)
   })
 
-  it('should be able to fetch question comments', async () => {
+  it('should be able to fetch comments question', async () => {
     await inMemoryQuestionCommentsRepository.create(
       makeQuestionComment({ questionId: new UniqueEntityID('question-1') }),
     )
@@ -34,7 +34,7 @@ describe('Fetch Question Comments', () => {
     expect(questionComments).toHaveLength(3)
   })
 
-  it('should be able to fetch paginated question comments', async () => {
+  it('should be able to fetch paginated comments question', async () => {
     for (let i = 1; i <= 22; i++) {
       await inMemoryQuestionCommentsRepository.create(
         makeQuestionComment({ questionId: new UniqueEntityID('question-1') }),
