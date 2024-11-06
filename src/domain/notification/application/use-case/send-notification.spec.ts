@@ -14,7 +14,7 @@ describe('Send Notification', () => {
     const result = await sut.execute({
       recipientId: '1',
       title: 'Nova notificacao',
-      content: 'Conteúdo da notificao',
+      content: 'Conteúdo da notificacao',
     })
 
     expect(result.isRight()).toBe(true)
